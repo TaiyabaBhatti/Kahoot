@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page of Questions</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="https://kit.fontawesome.com/24f84cfde2.js" crossorigin="anonymous"></script>
+    <script src="../OtherPages/startCreate.js" defer></script>
+
+<style>
+
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{
+
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+
+    <section class="relative  h-screen">
+        <img src="../Images/teach_stud_theme_background.jpg" alt="" class=" w-screen h-screen absolute z-10 object-cover">      
+        
+        <form  class="relative z-40 h-screen max-w-[1000px] p-5 m-auto justify-center place-items-center flex flex-col gap-y-6">
+
+            <!-- moving to the next page -->
+            <button type="submit" id="save-btn" class="absolute top-5 right-5 bg-blue-600 text-white font-bold py-2 px-8 rounded-lg shadow-md hover:bg-blue-700">
+                Save
+            </button>
+
+            <!-- title field -->
+                <div class="flex flex-col gap-4 items-start sm:flex-row sm:items-center">
+                    <label for="title" class="text-xl font-bold tracking-wider">Title:</label>
+        <input type="text" id="title" class=" ques-input  text-lg text-gray-700 outline-none border-none bg-white flex px-5 rounded-md py-2 shadow-[0px_4px_1px_0px_#D8D8D8]" required>
+                </div>
+                <!-- question count field -->
+                <div class="flex flex-col  gap-4 items-start sm:flex-row sm:items-center">
+                    <label for="ques-count" class="text-xl font-bold tracking-wider">No of Ques:</label>
+        <input type="number" min="1" id="ques-count" class=" ques-input  text-lg text-gray-700 outline-none border-none bg-white flex px-5 rounded-md py-2 shadow-[0px_4px_1px_0px_#D8D8D8]" required>
+                </div>
+        </form>
+        </section>
+
+
+</body>
+</html>

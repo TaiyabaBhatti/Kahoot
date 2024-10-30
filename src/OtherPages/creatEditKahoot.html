@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Kahoot Page of Questions</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/24f84cfde2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../OtherPages/mainCreate.js" defer></script>
+  </head>
+  <body>
+    <section class="relative h-screen">
+      <img
+        src="../Images/teach_stud_theme_background.jpg"
+        alt=""
+        class="w-screen h-screen absolute z-10 object-cover"
+      />
+      <button
+        id="prev-btn"
+        class="z-40 absolute left-5 top-1/2  text-white py-2 px-2 rounded-full hover:bg-gray-500 w-10 hover:shadow-md transition-all duration-150 h-10 "
+      ><i class="fa-solid fa-angle-left text-2xl"></i>
+      </button>
+      <button
+        id="next-btn"
+        class="z-40 absolute right-5 top-1/2 text-white py-2 px-2 rounded-full hover:bg-gray-500 w-10 hover:shadow-md transition-all duration-150 h-10"
+      ><i class="fa-solid fa-angle-right text-2xl"></i>
+      </button>
+
+      <div id="question-container">
+        <div
+          class="relative z-40 h-screen max-w-[1000px] p-5 m-auto justify-center place-items-center flex flex-col gap-y-6"
+        >
+          <div
+            class="w-full bg-white flex place-content-center px-5 rounded-md py-2 shadow-[0px_4px_1px_0px_#D8D8D8]"
+          >
+            <textarea
+              class="ques-input text-center focus:w-full text-xl text-gray-11 outline-none border-none resize-none"
+              rows="1"
+              placeholder="Question?"
+            ></textarea>
+          </div>
+
+          <div
+            class="ques-ans-option-block grid w-full gap-3 grid-cols-1 sm:grid-cols-2"
+          >
+            <div
+              class="ans-option flex flex-row bg-white shadow-section-a-2 p-2 rounded-md gap-x-3 items-center transition-all duration-200 h-20 sm:h-28"
+            >
+              <div
+                class="bg-red-600 rounded-sm p-2 justify-center items-center flex h-full max-[700px]:h-fit max-[700px]:w-auto w-[55px]"
+                data-color="red"
+              >
+                <i
+                  class="fa-solid fa-shield text-white text-[2.1rem] max-[700px]:text-[1.3rem]"
+                ></i>
+              </div>
+
+              <textarea
+                class="outline-none border-none w-[100%] bg-transparent ans-by-textarea resize-none overflow-y-hidden"
+              ></textarea>
+
+              <div
+                class="checked-circle w-[35px] h-[35px] hidden bg-red-600 border-white border-4 rounded-full shadow-[0px_0px_2px_2px_#CCCCCC] hover:scale-105 transition-all duration-100 cursor-pointer items-center justify-center p-[18px]"
+                data-colorst="bg-green-600"
+                data-color="bg-red-600"
+              >
+                <i
+                  class="transition-all hover:scale-105 duration-100 fa-solid fa-check text-[1.3rem] text-white"
+                ></i>
+              </div>
+            </div>
+            <div
+              class="ans-option flex flex-row bg-white shadow-section-a-2 p-2 rounded-md gap-x-3 items-center transition-all duration-200 h-20 sm:h-28"
+            >
+              <div
+                class="rounded-sm p-2 justify-center items-center flex h-full bg-theme-textblue w-[55px] max-[700px]:h-fit max-[700px]:w-auto"
+                data-color="red"
+              >
+                <i
+                  class="fa-solid fa-diamond text-white text-[2.1rem] max-[700px]:text-[1.3rem]"
+                ></i>
+              </div>
+              <textarea
+                class="outline-none border-none w-[100%] bg-transparent ans-by-textarea resize-none overflow-y-hidden"
+              ></textarea>
+
+              <div
+                class="checked-circle w-[35px] h-[35px] bg-theme-textblue border-white border-4 rounded-full shadow-[0px_0px_2px_2px_#CCCCCC] hover:scale-105 transition-all duration-100 cursor-pointer hidden place-items-center justify-center p-[18px]"
+                data-colorst="bg-green-600"
+                data-color="bg-theme-textblue"
+              >
+                <i
+                  class="transition-all hover:scale-105 duration-100 fa-solid fa-check text-[1.3rem] text-white"
+                ></i>
+              </div>
+            </div>
+            <div
+              class="ans-option flex flex-row bg-white shadow-section-a-2 p-2 rounded-md gap-x-3 items-center transition-all duration-200 h-20 sm:h-28"
+            >
+              <div
+                class="bg-yellow-400 rounded-sm p-2 justify-center items-center flex h-full w-[55px] max-[700px]:h-fit max-[700px]:w-auto"
+              >
+                <i
+                  class="fa-solid fa-circle text-white text-[2.1rem] max-[700px]:text-[1.3rem]"
+                ></i>
+              </div>
+              <textarea
+                class="outline-none border-none w-[100%] bg-transparent ans-by-textarea resize-none overflow-y-hidden"
+              ></textarea>
+
+              <div
+                class="checked-circle w-[35px] h-[35px] bg-yellow-400 border-white border-4 rounded-full shadow-[0px_0px_2px_2px_#CCCCCC] hover:scale-105 transition-all duration-100 cursor-pointer hidden place-items-center justify-center p-[18px]"
+                data-colorst="bg-green-600"
+                data-color="bg-yellow-400"
+              >
+                <i
+                  class="transition-all hover:scale-105 duration-100 fa-solid fa-check text-[1.3rem] text-white"
+                ></i>
+              </div>
+            </div>
+            <div
+              class="ans-option flex flex-row bg-white shadow-section-a-2 p-2 rounded-md gap-x-3 items-center transition-all duration-200 h-20 sm:h-28"
+            >
+              <div
+                class="bg-medium-green rounded-sm p-2 justify-center items-center flex h-full w-[55px] max-[700px]:h-fit max-[700px]:w-auto"
+                data-color="red"
+              >
+                <i
+                  class="fa-solid fa-square text-white text-[2.1rem] max-[700px]:text-[1.3rem]"
+                ></i>
+              </div>
+              <textarea
+                class="outline-none border-none w-[100%] bg-transparent ans-by-textarea resize-none overflow-y-hidden"
+              ></textarea>
+
+              <div
+                class="checked-circle w-[35px] h-[35px] bg-medium-green border-white border-4 rounded-full shadow-[0px_0px_2px_2px_#CCCCCC] hover:scale-105 transition-all duration-100 cursor-pointer hidden place-items-center justify-center p-[18px]"
+                data-colorst="bg-green-600"
+                data-color="bg-medium-green"
+              >
+                <i
+                  class="transition-all hover:scale-105 duration-100 fa-solid fa-check text-[1.3rem] text-white"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </body>
+</html>

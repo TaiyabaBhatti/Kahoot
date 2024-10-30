@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <script src="https://kit.fontawesome.com/24f84cfde2.js" crossorigin="anonymous"></script>
+    <script src="../Javascript/adminsidejs.js" defer></script>
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+        .mask-hidden-small{
+        position: relative;
+        width: 80px;
+        }
+       
+        .mask-hidden{
+        position: relative;
+        width: 125px;
+        }
+
+
+        .mask-hidden::before,.mask-hidden-small::before{
+        content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: white;
+          mask-image: url("./Images/kahoot-white.svg"); 
+          mask-position: center;
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          transition: background 0.5s;
+        }  
+        
+        </style>
+</head>
+<body class="overflow-hidden">
+<section class="relative h-screen">
+<img src="./Images/teach_stud_theme_background.jpg" alt="" class=" w-screen h-screen absolute z-10 object-cover">
+
+<div class="max-w-[1360px] h-full py-2  m-auto relative z-40">
+
+  <!-- Main admin screen -->
+<div class="px-5 admin-screen-1 h-full justify-between place-items-center flex-col gap-y-6  z-40 hidden">      
+  <div class="flex flex-col  gap-y-8 items-center max-[798px]:w-screen">
+      <div class="flex flex-row gap-x-3  justify-center  relative  bg-white max-[798px]:w-screen w-fit">
+    <div class=" flex flex-col place-items-center md:flex-row  gap-x-1 bg-white rounded-sm">
+      <p class=" max-[798px]:w-fit w-48  p-2 font-bold text-gray-8 md:text-left text-center">Join at <span class="text-black font-bold">www.kahoot.it</span> or with the <span class="text-black font-bold">Kahoot! app</span></p>
+      <div class="bg-gray-2 w-2 h-full max-[798px]:hidden"></div>
+      <div class="p-1 leading-7 flex flex-row items-center  md:flex-col md:items-start ">
+          <p>Game PIN:</p>
+          <p class="text-4xl max-[798px]:text-xl font-extrabold text-gray-16 hover:bg-gray-5 p-2 rounded-sm cursor-pointer">808 8906</p>
+      </div>
+    </div>
+    <div class="bg-white w-24 h-24 rounded-sm cursor-pointer hover:bg-gray-4 hidden md:block">
+      <img src="./Images/QR_code.svg" alt="">
+    </div> 
+  </div>
+    <a href="#"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="w-36"></a>
+
+  </div>
+  <div id="participant-block" class="flex gap-3 flex-wrap justify-center">
+      <p class="bg-medium-purple rounded-sm p-2 text-white font-bold text-xl">Waiting for players…</p>
+  </div>
+
+<div class="w-full flex flex-row  place-content-end  md:justify-between gap-x-3 min-h-12 sm">
+  <a href="#" class="md:block hidden"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="w-24"></a>
+<div class="flex flex-row gap-x-3 items-end">
+<div class="participat bg-gray-13 place-content-center h-full rounded-sm px-3 py-0.5 flex flex-row flex-wrap gap-2 opacity-80">
+  <i class="fa-solid fa-user text-white text-xl"></i>
+  <span class="participant-count text-white  text-xl">0</span>
+</div>
+<div class=" bg-gray-13 h-full text-white rounded-sm place-content-center py-0.5 px-1 flex flex-row flex-wrap opacity-80">
+  <i class="fa-solid fa-volume-off p-2 hover:bg-gray-9 text-lg"></i>
+<i class="fa-solid fa-gear p-2 text-lg  hover:bg-gray-9"></i>
+<i class="fa-solid fa-expand p-2 text-lg hover:bg-gray-9"></i>
+</div>
+<button id="start-btn" class=" bg-gray-5 hover:bg-gray-7 h-fit py-3  px-5 cursor-not-allowed text-black font-bold rounded-md tracking-widest">Start</button>
+</div>
+</div>
+
+</div>
+<!--initial Loading and question screens -->
+
+<div class="admin-screen-2-loading h-full flex place-items-center justify-center flex-col gap-5"> 
+
+ <div class="w-full h-full">
+<!--  loading screens A-->
+<h1 class="admin-screen-2-loading-a py-4 text-4xl font-bold bg-white text-gray-16 shadow-sm shadow-gray-400 w-full text-center hidden">Question</h1>
+<!--  loading screens B-->
+<div class="admin-screen-2-loading-b hidden">
+  <div class="relative  w-32 h-32 place-content-center">
+    <div class="transition-all duration-200 loading-number-block -z-10 top-0 absolute bg-medium-purple  w-32 h-32"></div>
+    <h1 class=" text-5xl  font-bold text-white text-center"></h1>
+  </div>
+</div>
+<!--initial question display screen -->
+<div class="px-5 admin-screen-2-question-display flex-col place-items-center gap-y-36 w-full hidden">
+
+  <!-- Question Number  -->
+  <div class="">
+   <h1 class="text-4xl text-white font-bold bg-medium-purple py-1 px-4 rounded-3xl"><span class="ques-no">1</span> of <span class="total-ques">2</span> </h1>
+  </div>
+
+  <!-- Question -->
+  <h1 class="admin-screen-question p-4 text-4xl font-bold bg-white text-gray-16 shadow-sm shadow-gray-400 w-fit text-center">Hello?</h1>
+
+    <!--Question loading bar -->
+  <div id="loading-bar" class="transition-all self-start  duration-1000 w-2 h-4 rounded-lg  bg-medium-purple"></div>
+
+</div>
+
+<!-- Final Question screen -->
+<div class="px-5 admin-screen-2-question-display h-full flex flex-col place-items-center gap-y-28 w-full">
+  <!-- Question -->
+  <h1 class="admin-screen-question px-4 py-2 text-4xl font-bold bg-white text-gray-16 shadow-sm shadow-gray-400 w-fit text-center ">Hello?</h1>
+  <!-- remaining time and answers count  -->
+  <div class="flex w-full justify-between items-center gap-x-2">
+  <div class="time-counter">
+   <span class="time-remaining text-3xl text-white font-bold bg-medium-purple py-1 px-4 rounded-full">345</span>
+  </div>
+<div class="hidden">
+<img src="" alt="Question-as-image">
+</div>
+
+<div class="answers-block flex flex-col place-items-center gap-y-1">
+  <span class="answers-count text-2xl text-white font-bold bg-medium-purple px-3 py-1 rounded-full">0</span>
+  <h1 class="text-sm text-white font-bold bg-medium-purple py-1 px-4 rounded-3xl">Answers</h1>
+</div>
+</div>
+
+<!-- answers options -->
+<div class="ans-options-btn w-full grid grid-cols-1  gap-4 sm:grid-cols-2">
+
+<button id="ans-a" class="flex gap-x-3 items-center rounded-md h-16 shadow-[0px_4px_1px_0px_#991b1b] p-2 bg-red-600 active:scale-105 transition-all duration-200 ">
+  <i class="fa-solid fa-shield  text-white text-[2.1rem]   max-[700px]:text-[1.3rem]"></i>
+  <p class="text-white text-2xl font-bold">A</p>
+</button>
+<button id="ans-b" class="flex gap-x-3 items-center rounded-md h-16 shadow-[0px_4px_1px_0px_#0e488f] active:scale-105 transition-all duration-200  p-2 bg-theme-textblue">
+  <i class="fa-solid fa-diamond  text-white text-[2.1rem]   max-[700px]:text-[1.3rem]"></i>
+  <p class="text-white text-2xl font-bold">B</p>
+</button>
+<button id="ans-c" class="flex gap-x-3 items-center rounded-md h-16 shadow-[0px_4px_1px_0px_#eab308] active:scale-105 transition-all duration-200 p-2  bg-yellow-400">
+  <i class="fa-solid fa-circle  text-white text-[2.1rem]   max-[700px]:text-[1.3rem]"></i>
+  <p class="text-white text-2xl font-bold">C</p>
+</button>
+<button id="ans-d" class="flex gap-x-3 items-center rounded-md h-16 shadow-[0px_4px_1px_0px_#14532d] active:scale-105 transition-all duration-200 p-2  bg-dark-green">
+  <i class="fa-solid fa-square  text-white text-[2.1rem]   max-[700px]:text-[1.3rem]"></i>
+  <p class="text-white text-2xl font-bold">D</p>
+</button>
+</div>
+
+<!-- Question skip and next button -->
+<button id="skip-next-btn" class="rounded-2xl right-0 absolute top-2 bg-white text-black font-bold px-4 py-1 text-lg">Skip</button>
+
+</div>
+
+<!-- next question screen -->
+\
+
+
+<!-- Winning screen -->
+<div id="winning-screen" class=" px-4 h-full place-content-end hidden">
+<div class="flex flex-row justify-center items-end ">
+<div id="rank-2" class="bg-darker-blue  flex flex-col place-items-center rounded-md px-3 py-2 h-60 w-44 shadow-[inset_-25px_0px_20px_-6px_#172554]">
+  <img src="./Images/rank-2.png" alt="positions" class="w-36">
+  <h1 class="player-name font-bold text-lg text-white">ABC</h1>
+  <p class="marks text-white font-bold text-lg">435</p>
+</div>
+<div id="rank-1" class="bg-darker-blue  flex flex-col place-items-center rounded-md px-3 py-2 h-64 w-44 ">
+  <img src="./Images/rank-1.png" alt="positions" class="w-36">
+  <h1 class="player-name font-bold text-lg text-white">XYZ</h1>
+  <p class="marks text-white font-bold text-lg">435</p>
+</div>
+<div id="rank-3" class="bg-darker-blue  flex flex-col place-items-center rounded-md px-3 py-2 h-56 w-44 shadow-[inset_25px_0px_20px_-6px_#172554]">
+  <img src="./Images/rank-3.png" alt="positions" class="w-36">
+  <h1 class="player-name font-bold text-lg text-white">PQR</h1>
+  <p class="marks text-white font-bold text-lg">435</p>
+</div>
+
+</div>
+</div>
+
+
+
+
+</div>
+<!-- Bottom header for settings and participant count -->
+<div class="px-5 py-2 w-full flex flex-row  place-content-end  md:justify-between gap-x-3 min-h-12 sm">
+  <a href="#" class="md:block hidden"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="w-24"></a>
+
+  <div class="flex flex-row gap-x-3 items-end">
+<div class="participat bg-gray-13 place-content-center h-full rounded-sm px-3 py-0.5 flex flex-row flex-wrap gap-2 opacity-80">
+  <i class="fa-solid fa-user text-white text-xl"></i>
+  <span class="participant-count text-white  text-xl">0</span>
+</div>
+<div class=" bg-gray-13 h-full text-white py-1 rounded-sm place-content-center px-1 flex flex-row flex-wrap opacity-80">
+  <i class="fa-solid fa-volume-off p-2 hover:bg-gray-9 text-lg"></i>
+<i class="fa-solid fa-gear p-2 text-lg  hover:bg-gray-9"></i>
+<i class="fa-solid fa-expand p-2 text-lg hover:bg-gray-9"></i>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+    </div>
+
+</section>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+</body> </html>

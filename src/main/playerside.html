@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Page</title>
+    <script src="https://kit.fontawesome.com/24f84cfde2.js" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="../../style.css">
+    <!-- <style>
+        .mask-hidden{
+        position: relative;
+        
+        /* display: none; */
+        }
+        .mask-hidden::before,.mask-hidden-small::before{
+        content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: white;
+          mask-image: url("./Images/kahoot-white.svg"); 
+          mask-position: center;
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          transition: background 0.5s;
+        }  
+        
+        </style> -->
+</head>
+<body class="overflow-hidden">
+<section class="relative h-screen">
+<img src="./Images/teach_stud_theme_background.jpg" alt="" class=" w-screen  h-screen absolute z-10 object-cover">
+
+<div id="player-screen-1" class="max-w-screen-xl h-full  m-auto place-items-center justify-center flex  flex-col gap-y-6 relative z-40">
+<!-- Input Pin screen -->
+<div class=" flex-col p-5  gap-y-8 items-center hidden pl-sc-1">
+    <a href="#"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="w-36"></a>
+     <div class="w-72 bg-white flex flex-col gap-y-3 p-5 rounded-sm ">
+        <input type="text" class="border-2 outline-none focus:border-gray-16 p-2 text-center" placeholder="Game Pin">
+        <button class="bg-gray-14 text-white text-xl font-bold p-2 active:scale-110 transition-all duration-150">Enter</button>
+     </div>
+</div>
+<!-- Nickname screen-->
+<div class=" flex-col p-5  gap-y-8 items-center hidden pl-sc-1">
+    <a href="#"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="w-36"></a>
+
+     <div class="w-72 bg-white flex flex-col gap-y-3 p-5 rounded-sm ">
+        <input type="text" class="border-2 outline-none focus:border-gray-16 p-2 text-center" placeholder="Game NickName">
+        <button class="bg-gray-14 text-white text-xl font-bold p-2 active:scale-110 transition-all duration-150">Ok, go</button>
+     </div>
+
+
+</div>
+
+<!-- Player Screen -->
+<div class=" flex-col p-5  gap-y-4 items-center  pl-sc-3  hidden">
+ 
+    <button class="relative edit-avatar bg-medium-purple pt-2 hover:border-2 border-white w-32 rounded-md">
+        <img src="./Images/cute-tiger-emoji-png-image.png" alt="tiger-avatar-emoji" class="object-cover">
+    <div class="bg-white rounded-full p-1 w-9 h-9 absolute -top-3 -right-4"><i class="fa-solid text-xl fa-pencil text-black"></i></div>
+    </button>
+
+    <h1 class="Player-name text-white font-extrabold text-5xl text-center">Manoooo</h1>
+<p class=" text-white font-extrabold  text-xl">You are in! See your name on screen?</p>
+</div>
+
+<!-- Player Screen Ans Keys -->
+
+<div id="player-ans-screen" class="w-full h-full p-5 flex flex-col ">
+    <!-- top number count  -->
+    <div class="w-8 h-8 flex items-center justify-center p-1 top-ans-count rounded-full bg-gray-100 mb-10">
+       <span class="ans-count text-black font-medium">1</span>
+    </div>
+
+    <!-- Answer keys  block-->
+    <div class="ans-options-btn h-2/3 py-5 w-full  grid-cols-2  gap-0 sm:gap-4 overflow-y-scroll sm:overflow-hidden hidden">
+
+        <button id="player-ans-a" class="flex h-full justify-center items-center rounded-md  shadow-[0px_4px_1px_0px_#991b1b] p-2 bg-red-600 active:scale-105 transition-all duration-200 ">
+          <i class="fa-solid fa-shield  text-white text-6xl md:text-8xl"></i>
+        </button>
+        <button id="player-ans-b" class="flex items-center justify-center rounded-md h-full shadow-[0px_4px_1px_0px_#0e488f] active:scale-105 transition-all duration-200  p-2 bg-theme-textblue">
+          <i class="fa-solid fa-diamond  text-white text-6xl md:text-8xl"></i>
+        
+        </button>
+        <button id="player-ans-c" class="flex items-center justify-center rounded-md h-full shadow-[0px_4px_1px_0px_#eab308] active:scale-105 transition-all duration-200 p-2  bg-yellow-400">
+          <i class="fa-solid fa-circle  text-white text-6xl md:text-8xl"></i>
+        </button>
+        <button id="player-ans-d" class="flex items-center justify-center rounded-md h-full shadow-[0px_4px_1px_0px_#14532d] active:scale-105 transition-all duration-200 p-2  bg-dark-green">
+          <i class="fa-solid fa-square  text-white text-6xl md:text-8xl"></i>
+      
+        </button>
+        </div>
+
+<!-- Answer submission status block-->
+<div class="flex flex-col items-center gap-y-5 min-w-80 max-w-80 m-auto">
+
+    <h1 id="correction-title" class=" text-white font-bold text-4xl">Correct</h1>
+
+    <div id="correction-status-icon" class=" w-14 h-14 bg-green-500 border-white border-4 rounded-full flex place-items-center justify-center p-4" data-color="bg-green-600">
+    <i class=" fa-solid fa-check  text-xl text-white"></i>
+    </div>
+
+    <p class="text-white font-bold text-lg">Answer Streak: <span id="streak-count" class="">1</span></p>
+
+<button class="text-white font-bold text-xl bg-gray-13 opacity-80 rounded-md w-full py-3"><span class="points-count">806</span></button>
+
+<p id="good-quotes" class="text-white font-bold">You're on the podium!</p>
+
+
+</div>
+
+
+<!-- Bottom header for settings and participant count -->
+        <div class=" py-2 px-2 w-full flex flex-row items-center justify-between gap-x-3 min-h-16 fixed left-0  bottom-0 bg-white opacity-75">
+            <p class="player-name font-bold text-2xl">Tayyaba</p>    
+          <div class="bg-gray-14 place-content-center rounded-md px-8 py-0.5">
+            <span class="player-ans-count text-white font-bold text-xl">0</span>
+          </div>
+          
+          </div>
+
+
+</div>
+
+
+
+    </div>
+   
+<!-- <div id="player-screen-2" class="max-w-[1360px] h-full p-5 m-auto justify-between place-items-center flex-col gap-y-6 relative z-40 hidden">      
+    <div class="flex flex-col  gap-y-8 items-center max-[798px]:w-[100vw]">
+        <div class="flex flex-row gap-x-3  justify-center  relative  bg-white max-[798px]:w-[100vw] w-fit">
+      <div class=" flex flex-row place-items-center max-[630px]:flex-col gap-x-1 bg-white rounded-sm">
+        <p class=" max-[798px]:w-fit w-[200px]  p-2 font-bold text-gray-8">Join at <span class="text-black font-bold">www.kahoot.it</span> or with the <span class="text-black font-bold">Kahoot! app</span></p>
+        <div class="bg-gray-2 w-2 h-full max-[798px]:hidden"></div>
+        <div class="p-1 leading-7 max-[798px]:flex max-[798px]:items-center">
+            <p>Game PIN:</p>
+            <p class="text-[2.5rem] max-[798px]:text-[1rem] font-extrabold text-gray-16 hover:bg-gray-5 p-[10px] rounded-sm cursor-pointer">808 8906</p>
+        </div>
+
+      </div>
+      <div class="bg-white w-[100px] h-[100px] rounded-sm cursor-pointer hover:bg-gray-4 max-[798px]:hidden">
+        <img src="./Images/QR_code.svg" alt="" class="">
+      </div> 
+    </div>
+      <a href="#" class="mask-hidden"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="w-[125px]"></a>
+
+    </div>
+    <div id="participant-block" class="flex gap-3 flex-wrap justify-center">
+        <p class="bg-medium-purple rounded-sm p-2 text-white font-bold text-[1.3rem]">Waiting for players…</p>
+    </div>
+
+<div class=" w-[100%] flex flex-row justify-between max-[630px]:place-content-end gap-x-3 h-[50px]">
+    <a href="#" class="mask-hidden-small max-[630px]:hidden"><img src="./Images/kahoot-white.svg" alt="logo image" title="Kahoot! logo" class="hidden"></a>
+<div class="flex flex-row gap-x-3">
+<div class="participat bg-gray-13 place-content-center rounded-sm px-5 opacity-80">
+    <i class="fa-solid fa-user text-white text-[1.3rem] mr-1"></i>
+    <span class="participant-count text-white text-[1.3rem]">0</span>
+</div>
+<div class=" bg-gray-13 text-white rounded-sm place-content-center px-5 opacity-80">
+    <i class="fa-solid fa-volume-off p-2 hover:bg-gray-9 text-[1.2rem]"></i>
+<i class="fa-solid fa-gear p-2 text-[1.2rem] hover:bg-gray-9"></i>
+<i class="fa-solid fa-expand p-2 text-[1.2rem] hover:bg-gray-9"></i>
+</div>
+<button id="start-btn" class=" bg-gray-5 hover:bg-gray-7  px-5 cursor-not-allowed text-black font-bold rounded-md  tracking-[2px]">Start</button>
+</div>
+
+
+
+</div>
+
+</div> -->
+
+
+</section>
+</body> </html>
